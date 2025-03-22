@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Define Paths (Change Accordingly)
-DATA_DIR="/home/piyali/Research/Data/SNP/PLINKFinal_ADNI_20231107"
-BASE_NAME="ADNI3_PLINK_FINAL_2nd"
-PLINK_DIR="/home/piyali/Downloads/plink_1.9_linux_x86_64_20241022"
+DATA_DIR="/path/to/your/data/dir"
+BASE_NAME="/name/of/your/snp/folder"
+PLINK_DIR="/folder/where/plink-1.9/is/saved"
 
 # to show frequency stats:
 $PLINK_DIR/plink --bfile $DATA_DIR/$BASE_NAME --assoc --adjust --check-sex --missing --chr 1-22,xy --freq --out $DATA_DIR/assoc_freq_stat
@@ -30,19 +30,14 @@ $PLINK_DIR/plink --bfile $DATA_DIR/step1_qc --maf 0.1 --make-bed --out $DATA_DIR
 # Step 4: Remove SNPs failing Hardy-Weinberg Equilibrium (HWE) test (p < 0.001)
 $PLINK_DIR/plink --bfile $DATA_DIR/step2_qc --hwe 0.001 --make-bed --out $DATA_DIR/step3_qc
 
-# Step 5: Verify SNP count and generate final dataset
-#$PLINK_DIR/plink --bfile $DATA_DIR/step3_qc --freq --out $DATA_DIR/step4_qc
-
-# Step 6: Convert SNPs to additive genetic format (0,1,2 encoding)
+# Step 5: Convert SNPs to additive genetic format (0,1,2 encoding)
 $PLINK_DIR/plink --bfile $DATA_DIR/step3_qc --recodeA --make-bed --out $DATA_DIR/final_snp_data
 
 # convert into csv:
 mv $DATA_DIR/final_snp_data.raw $DATA_DIR/final_snp_data.csv
 
-# Step 7: Remove intermediate files safely
-#rm $DATA_DIR/step*_qc.*
-
-
+# Step 7: Remove intermediate files safely (in case you do not want the files for each step)
+rm $DATA_DIR/step*_qc.*
 
 echo "SNP QC Pipeline Completed Successfully!"
 
