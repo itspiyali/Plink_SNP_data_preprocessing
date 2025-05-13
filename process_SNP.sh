@@ -10,10 +10,13 @@ MERGED="</path/to/the/merged/file>/<filename>_merged"
 
 # set the thresholds :
 SNP_CALL_RATE=0.0001
-MAF_THRESHOLD=0.05
+MAF_THRESHOLD=0.1
 MIND_THRESHOLD=0.05
-HWE_THRESHOLD=0.0001
+HWE_THRESHOLD=0.001
+HWE2_THRESHOLD=0.001
 P_VALE=0.001 #(=1e-3)
+LD_WINDOW_SIZE=50
+
 
 # Change the current directory into the plink directory :
 cd $PLINK_DIR
