@@ -114,8 +114,9 @@ $PLINK/plink --bfile $DATA_DIR/step_6_p_filter_${P_VALUE} --indep 50 5 2
 # or,
 $PLINK/plink --bfile $DATA_DIR/step_6_p_filter_${P_VALUE} --indep 50 5 0.5 
 "	
-This command will create files : plink.prune.in
-									 plink.prune.out
+This command will create files : 
+plink.prune.in
+plink.prune.out
 									 
 Then apply the pruning with the command :
 "
@@ -131,10 +132,12 @@ when a child's genotype doesn't match the possible combinations of parental geno
 "
 $PLINK/plink --bfile $DATA_DIR/LD_based_pruned --mendel
 "
-This command will create files : plink.mendel
-									               plink.imendel
-									               plink.fmendel
-									               plink.lmendel
+This command will create files : 
+plink.mendel
+plink.imendel
+plink.fmendel
+plink.lmendel
+
 The *.mendel file contains all Mendel errors (i.e. one line per error); the *.imendel file contains a
 summary of per-individual error rates; the *.fmendel file contains a summary of per-family error rates; the
 *.lmendel file contains a summary of per-SNP error rates.
