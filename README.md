@@ -6,3 +6,6 @@ Read 'tutorial.txt' for learning basic plink commands. \
 First set the environment variables as: \
 `export PLINK_DIR=</full/path/to/the/plink1.9/directory>` \
 `export DATA_DIR=</full/path/to/where/the/preprocessed/data/is/to/be/saved>`
+etc whichever required to perform the steps you need.
+
+
